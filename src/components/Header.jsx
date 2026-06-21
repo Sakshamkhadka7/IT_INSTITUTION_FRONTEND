@@ -39,7 +39,6 @@ const Header = () => {
       toast.success("You are logout successfully");
       setUser(null);
       dispatch({ type: "clear" });
-
       navigate("/login");
     }
   };
