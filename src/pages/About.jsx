@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import Loading from "../components/Loading";
 const About = () => {
   const API = import.meta.env.VITE_API_URL;
   const [instructors, setInstructors] = useState([]);
   const [loading, setLoading] = useState(false);
+  const navigate=useNavigate() ;
 
   const getInstructors = async () => {
     try {
@@ -56,8 +57,8 @@ const About = () => {
             that need in a market
           </p>
 
-          <div className="flex items-center gap-2 border px-6 py-2 w-60 bg-blue-400 text-white hover:cursor-pointer hover:bg-blue-950">
-            <button className="text-xl">Get Course</button>
+          <div onClick={()=> navigate("/courses")} className="flex items-center gap-2 border px-6 py-2 w-60 bg-blue-400 text-white hover:cursor-pointer hover:bg-blue-950">
+            <button className="text-xl hover:cursor-pointer">Get Course</button>
             <FaArrowRight size={25} />
           </div>
         </div>
